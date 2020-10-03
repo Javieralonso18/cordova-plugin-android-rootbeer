@@ -1,60 +1,59 @@
-let exec;
+var exec;
+
 try {
   exec = require('cordova/exec');
 } catch (error) {
   console.log('Cordova exec not found');
-  exec = function (cb, err, PLUGIN_NAME, RootCheck, args) {
+
+  exec = function exec(cb, err, PLUGIN_NAME, RootCheck, args) {
     console.log('Invoked RootCheck:' + RootCheck);
     cb();
   };
 }
 
-
 var PLUGIN_NAME = 'cdvRootBeer';
-
 var cdvRootBeer = {
-  isRooted: function (cb, err) {
+  isRooted: function isRooted(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'isRooted', []);
   },
-  isRootedWithoutBusyBoxCheck: function (cb, err) {
+  isRootedWithoutBusyBoxCheck: function isRootedWithoutBusyBoxCheck(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'isRootedWithoutBusyBoxCheck', []);
   },
-  isSelinuxFlagInEnabled: function (cb, err) {
+  isSelinuxFlagInEnabled: function isSelinuxFlagInEnabled(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'isSelinuxFlagInEnabled', []);
   },
-  detectRootManagementApps: function (cb, err) {
+  detectRootManagementApps: function detectRootManagementApps(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'detectRootManagementApps', []);
   },
-  detectPotentiallyDangerousApps: function (cb, err) {
+  detectPotentiallyDangerousApps: function detectPotentiallyDangerousApps(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'detectPotentiallyDangerousApps', []);
   },
-  detectTestKeys: function (cb, err) {
+  detectTestKeys: function detectTestKeys(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'detectTestKeys', []);
   },
-  detectRootCloakingApps: function (cb, err) {
+  detectRootCloakingApps: function detectRootCloakingApps(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'detectRootCloakingApps', []);
   },
-  checkForBusyBoxBinary: function (cb, err) {
+  checkForBusyBoxBinary: function checkForBusyBoxBinary(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForBusyBoxBinary', []);
   },
-  checkForSuBinary: function (cb, err) {
+  checkForSuBinary: function checkForSuBinary(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForSuBinary', []);
   },
-  checkSuExists: function (cb, err) {
+  checkSuExists: function checkSuExists(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkSuExists', []);
   },
-  checkForRWPaths: function (cb, err) {
+  checkForRWPaths: function checkForRWPaths(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForRWPaths', []);
   },
-  checkForDangerousProps: function (cb, err) {
+  checkForDangerousProps: function checkForDangerousProps(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForDangerousProps', []);
   },
-  checkForRootNative: function (cb, err) {
+  checkForRootNative: function checkForRootNative(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForRootNative', []);
-  }, 
-  checkForMagiskBinary: function (cb,err) {
+  },
+  checkForMagiskBinary: function checkForMagiskBinary(cb, err) {
     exec(cb, err, PLUGIN_NAME, 'checkForMagiskBinary', []);
   }
 };
-
 module.exports = cdvRootBeer;
